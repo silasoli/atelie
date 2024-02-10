@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Atelier do Bolo</title>
+    <link rel="stylesheet" type="text/css" href="novoestile2.css">
+    <link rel="shortcut icon" href="MARCA_ATELIER.png" type="image/x-icon">
+
+
+    <!---box icons link--->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!---remix icons link--->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!---Google fonts link--->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
+
+</head>
+
+<body>
+    <div class="logo">
+        <img id="logo" src="logo.svg">
+    </div>
+
+    <section id="main">
+        <div id="orders">
+            <div class="orders-items"
+                onclick="(window.location='https://api.whatsapp.com/message/HOE2CLCE75C4J1?autoload=1&app_absent=0')">
+                <img src="images/SALGADOS.png" class="orders-img">
+                <div class="orders-info">
+                    <h1 class="orders-title">Salgados</h1>
+                    <p class="orders-description">Salgados para festas, 100 Unidades</p>
+                    <p class="orders-description">a partir de R$130,00.</p>
+                    <div class="span-div">
+                        <span class="span-text">APENAS ENCOMENDAS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="orders-items"
+                onclick="(window.location='https://api.whatsapp.com/message/HOE2CLCE75C4J1?autoload=1&app_absent=0')">
+                <img src="images/minivulcao.png" class="orders-img">
+                <div class="orders-info">
+                    <h1 class="orders-title">Mini vulcão</h1>
+                    <p class="orders-description">A partir de R$12,00.</p>
+                    <p class="orders-description">Consultar sabor disponível no dia.</p>
+                    <div class="span-div">
+                        <span class="span-text">APENAS ENCOMENDAS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="orders-items"  onclick="(window.location='./atelierdobolo2page2.html')">
+                <img src="images/lanches.png" class="orders-img">
+                <div class="orders-info">
+                    <h1 class="orders-title">Lanches</h1>
+                    <p class="orders-description">Crepe, Bolinhos, Empadas, Quiche,</p>
+                    <p class="orders-description">Fatias, Risoles e muito mais!</p>
+                </div>
+            </div>
+
+            <div class="orders-items" onclick="(window.location='./atelierdobolo2page2.html')">
+                <img src="images/doces.png" class="orders-img">
+                <div class="orders-info">
+                    <h1 class="orders-title">Doces</h1>
+                    <p class="orders-description">Brigadeiros, Casadinhas, Trufas,</p>
+                    <p class="orders-description">Brownies, Cupcakes e muito mais!</p>
+                </div>
+            </div>
+
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img class="slide-img" src="images/doces.png" style="width: 100%;">
+                </div>
+    
+                <div class="mySlides fade">
+                    <img  class="slide-img" src="images/lanches.png" style="width: 100%">
+                </div>
+    
+                <div class="mySlides fade">
+                    <img  class="slide-img" src="images/SALGADOS.png" style="width: 100%">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)"><i class="ri-arrow-left-line ri-2x btn-slide"></i></a>
+                <a class="next" onclick="plusSlides(1)"><i class="ri-arrow-right-line ri-2x btn-slide"></i></a>
+            </div>
+        </div>
+    </section>
+   
+    <!---js link-->
+    <script src="js/script.js"></script>
+    <script src="js/slider.js"></script>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 300,
+            duration: 1400,
+        });
+    </script>
+
+</body>
+
+</html>

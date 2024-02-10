@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Atelier do Bolo</title>
+    <link rel="stylesheet" type="text/css" href="purchase-page.css">
+    <link rel="shortcut icon" href="MARCA_ATELIER.png" type="image/x-icon">
+
+
+    <!---box icons link--->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!---remix icons link--->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!---Google fonts link--->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
+
+</head>
+
+<body>
+    <div id="header" class="logo">
+        <div>
+            <a><i id="lefticon" class="ri-arrow-left-line ri-8x"></i></a>
+        </div>
+        <div id="img-div">
+            <img id="logo" src="logo.svg">
+        </div>
+        <div>
+            <i id="carticon" class='bx bx-cart' style='color:#964b74'  ></i>
+        </div>
+    </div>
+
+    <div id="title-div" class="">
+        <div>
+            <h1 id="title">Lanches</h1>
+        </div>
+       <div>
+        <p id="description">Feitos no dia! | Faça já seu pedido:</p>
+       </div>
+    </div>
+
+    <section>
+        <div id="snacks">
+            <div>
+                <div class="snacks-items">
+                    <img src="images/doces.png" class="snacks-img">
+                    <div class="snacks-info">
+                        <h1 class="snacks-title">Bolinho</h1>
+                        <h1 class="snacks-title">de Bacalhau</h1>
+                        <div class="snacks-footer">
+                            <p>130g</p>
+                            <span class="snacks-span">R$ 8,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="snacks-items">
+                    <img src="images/doces.png" class="snacks-img">
+                    <div class="snacks-info">
+                        <h1 class="snacks-title">Bolinho de Carne</h1>
+                        <h1 class="snacks-title">seca c/ Banana</h1>
+                        <div class="snacks-footer">
+                            <p>130g</p>
+                            <span class="snacks-span">R$ 8,00</span>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+            <div>
+                <div class="snacks-items">
+                    <img src="images/doces.png" class="snacks-img">
+                    <div class="snacks-info">
+                        <h1 class="snacks-title">Bolo Salgado</h1>
+                        <h1 class="snacks-title">Fatia</h1>
+                        <div class="snacks-footer">
+                            <p>130g</p>
+                            <span class="snacks-span">R$ 6,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="snacks-items">
+                    <img src="images/doces.png" class="snacks-img">
+                    <div class="snacks-info">
+                        <h1 class="snacks-title">Bolinho de</h1>
+                        <h1 class="snacks-title">Bacalhau</h1>
+                        <div class="snacks-footer">
+                            <p>130g</p>
+                            <span class="snacks-span">R$ 7,00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!---js link-->
+    <script src="js/script.js"></script>
+      
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 300,
+            duration: 1400,
+        });
+    </script>
+
+</body>
+
+</html>
