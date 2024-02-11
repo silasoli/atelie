@@ -30,10 +30,7 @@ body {
 
 #logo {
 	margin-top: 2vh;
-}
-
-#img-div{
-	width: 400px;
+	width: 500px;
 }
 
 .logo {
@@ -43,15 +40,15 @@ body {
 
 
 #carticon {
-	width: 8vw;
+	width: max-content;
 	border-radius: 30px;
 	font-size: 8em;
 	background-color: #FFE8E5;
 }
-
-#lefticon {
-	width: 8vw;
+#lefticon{
+	width: max-content;
 	border-radius: 30px;
+	font-size: 8em;
 	color: #964b74;
 	background-color: #FFE8E5;
 }
@@ -70,15 +67,10 @@ body {
 	margin: 0;
 }
 
-#logo {
-	max-height: 100%;
-}
-
 #header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
 	padding-left: 10%;
 	padding-right: 10%;
 }
@@ -101,38 +93,39 @@ body {
 
 #snacks {
 	margin-top: 5vh;
-	display: flex;
-	align-items: center;
+	display: grid;
+	margin: 0 auto;
+	grid-template-columns: 1fr 1fr;
+	width: max-content;
 	justify-content: center;
-	flex-direction: column;
+	align-items: center;
+	justify-items: center;
 	margin-bottom: 10vh;
+	gap: 30px;
 }
 
 .snacks-items {
-	margin-left: 30px;
-	width: 12vw;
-	height: 20vh;
-	display: inline-block;
-	margin-top: 10%;
-}
-
-.snacks-img {
-	width: 12vw;
-	border-radius: 60px;
+	width: 300px;
+	height: 350px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-top: 10px;
+	background-color: white;
+	border-radius: 25% 25% 15% 15% ;
 }
 
 .snacks-info {
-	width: 12vw;
-	margin-top: -50px;
-	padding-top: 17%;
-	padding-left: 7%;
-	padding-right: 7%;
-	height: 16vh;
-	background-color: white;
-	border-radius: 0px 0px 30px 30px;
+	padding: 0px 30px 30px 30px;
+}
+
+.snacks-img {
+	width: 100%;
+	border-radius: 25%;
 }
 
 .snacks-title {
+	margin-top: 10px;
 	font-size: 1.5rem;
 	color: #964b74;
 }
@@ -144,425 +137,101 @@ body {
 	justify-content: center;
 	justify-content: space-between;
 	color: #964b74;
-	font-size: 1.2rem;
 }
 
 .snacks-span {
-	padding-top: 3%;
 	color: white !important;
 	background-color: #964b74;
 	text-align: center;
-	width: 3vw;
-	height: 1.3vw;
 	border-radius: 15px;
+	padding: 5px 10px;
 }
 
-
-@media (max-width: 1450px){
-	#img-div{
-		width: 400px;
+@media (max-width: 900px) { 
+	/* ================= */
+	/* ===== LOGO ====== */
+	#logo {
+		margin-top: 2vh;
+		width: 300px;
 	}
-
 	#carticon {
-		width: 12vw;
-		font-size: 8em;
-	}
-
-	#lefticon{
-		width: 16vw;
-		font-size: 8em;
-	}
-
-	#snacks{
-		padding-left: 70px;
-	}
-
-	.snacks-items {
-		margin-right: 0px;
-		width: 30vw;
-		height: 26vh;
-	}
-
-	.snacks-img {
-		width: 22vw;
-		height: 20vh;
-		border-radius: 30px;
-
-		max-width: 316px;
-		max-height: 230px;
-	}
-
-	.snacks-info {
-		width: 22vw;
-		margin-top: -45px;
-		padding-top: 10%;
-		height: 23vh;
-		border-radius: 0px 0px 20px 20px;
-
-		max-width: 316px;
-		max-height: 195px;
-	}
-
-	.snacks-title {
-		font-size: 2.1rem;
-	}
-
-	.snacks-footer {
-		margin-top: 6%;
-		font-size: 1.8rem;
-	}
-
-	.snacks-span {
-		width: 8vw;
-		height: 3.5vw;
-
-		max-width: 115px;
-		max-height: 50px;
-	}
-
-
-}
-
-@media (max-width: 1030px){
-	#img-div{
-		width: 400px;
-	}
-
-	#carticon {
-		width: 14vw;
-		font-size: 5em;
-	}
-
-	#lefticon{
-		width: 18vw;
-		font-size: 5em;
-	}
-
-	#snacks{
-		padding-left: 0%;
-		margin-left: -1%;
-	}
-
-	.snacks-items {
-		margin-right: 0px;
-		width: 20vw;
-		height: 26vh;
-	}
-
-	.snacks-img {
-		width: 20vw;
-		height: 18vh;
-		border-radius: 30px;
-
-		max-width: 166px;
-		max-height: 114px;
-	}
-
-	.snacks-info {
-		width: 20vw;
-		margin-top: -45px;
-		padding-top: 28%;
-		height: 22vh;
-		border-radius: 0px 0px 20px 20px;
-
-		max-width: 166px;
-		max-height: 139px;
-	}
-
-	.snacks-title {
-		font-size: 1.1rem;
-	}
-
-	.snacks-footer {
-		margin-top: 6%;
-		font-size: 0.9rem;
-	}
-
-	.snacks-span {
-		width: 7vw;
-		height: 3vw;
-
-		max-width: 60px;
-		max-height: 25px;
-	}
-}
-
-
-
-@media (max-width: 780px){
-	#img-div{
-		width: 400px;
-	}
-
-	#carticon {
-		width: 16vw;
-		font-size: 5em;
-	}
-
-	#lefticon{
-		width: 20vw;
-		font-size: 5em;
-	}
-
-	#snacks{
-		padding-left: 0%;
-		margin-left: -5%;
-	}
-	.snacks-items {
-		margin-right: 0px;
-		width: 20vw;
-		height: 26vh;
-	}
-
-	.snacks-img {
-		width: 20vw;
-		height: 16vh;
-		border-radius: 30px;
-
-		max-width: 153px;
-		max-height: 101px;
-	}
-
-	.snacks-info {
-		width: 20vw;
-		margin-top: -45px;
-		padding-top: 33%;
-		height: 18vh;
-		border-radius: 0px 0px 20px 20px;
-
-		max-width: 153px;
-		max-height: 115px;
-	}
-
-	.snacks-title {
-		font-size: 0.9rem;
-	}
-
-	.snacks-footer {
-		margin-top: 1%;
-		font-size: 0.8rem;
-	}
-
-	.snacks-span {
-		width: 8vw;
-		height: 3vw;
-	}
-}
-
-
-@media (max-width: 430px){
-	#img-div{
-		width: 400px;
-	}
-
-	#carticon {
-		width: 18vw;
-		border-radius: 30px;
-		font-size: 2.5em;
-		background-color: #FFE8E5;
-	}
-
-	#lefticon{
-		width: 18vw;
-		font-size: 2.5em;
-	}
-
-	#title {
-		font-weight: bold;
-		font-size: 3rem;
-	}
-	
-	#description {
-		font-size: 1rem;
-	}
-
-	#snacks{
-		padding-left: 0px;
-		margin-right: 5%;
-	}
-
-	.snacks-items {
-		margin-right: 0px;
-		width: 30vw;
-		height: 26vh;
-	}
-
-	.snacks-img {
-		width: 40vw;
-		height: 16vh;
-		border-radius: 30px;
-
-		max-width: 132px;
-		max-height: 115px;
-	}
-
-	.snacks-info {
-		width: 40vw;
-		margin-top: -45px;
-		padding-top: 35%;
-		height: 18vh;
-		border-radius: 0px 0px 20px 20px;
-
-		max-width: 131px;
-		max-height: 115px;
-	}
-
-	.snacks-title {
-		font-size: 0.8rem;
-	}
-
-	.snacks-footer {
-		margin-top: 4%;
-		font-size: 0.8rem;
-	}
-
-	.snacks-span {
-		width: 15vw;
-		height: 5vw;
-	}
-}
-
-@media (max-width: 380px) {
-	#img-div{
-		width: 400px;
-	}
-
-	#carticon {
-		width: 18vw;
-		border-radius: 30px;
-		font-size: 2.5em;
-		background-color: #FFE8E5;
-	}
-
-	#lefticon{
-		width: 18vw;
-		font-size: 2.5em;
-	}
-
-	#title {
-		font-weight: bold;
-		font-size: 3rem;
-	}
-	
-	#description {
-		font-size: 1rem;
-	}
-
-	#snacks{
-		padding-left: 0%;
-		margin-left: -7%;
-	}
-
-	.snacks-items {
-		margin-right: 0px;
-		width: 30vw;
-		height: 27vh;
-	}
-
-	.snacks-img {
-		width: 40vw;
-		height: 16vh;
-		border-radius: 30px;
-
-		max-width: 132px;
-		max-height: 115px;
-	}
-
-	.snacks-info {
-		width: 40vw;
-		margin-top: -45px;
-		padding-top: 40%;
-		height: 18vh;
-		border-radius: 0px 0px 20px 20px;
-
-		max-width: 131px;
-		max-height: 115px;
-	}
-
-	.snacks-title {
-		font-size: 0.8rem;
-	}
-
-	.snacks-footer {
-		margin-top: 4%;
-		font-size: 0.8rem;
-	}
-
-	.snacks-span {
-		width: 15vw;
-		height: 5vw;
-	}
-}
-
-@media (max-width: 325px) {
-	#img-div{
-		width: 400px;
-	}
-
-	#carticon {
-		width: 18vw;
-		border-radius: 30px;
-		font-size: 2.5em;
-		background-color: #FFE8E5;
-	}
-
-	#lefticon{
-		width: 18vw;
-		font-size: 2.5em;
-	}
-
-	#title {
-		font-weight: bold;
-		font-size: 3rem;
-	}
-	
-	#description {
-		font-size: 1rem;
-	}
-
-	#snacks{
-		padding-right: 1px;
-		margin-right: -0.4%;
-	}
-
-	.snacks-items {
-		margin-left: 10px;
-		width: 40vw;
-	}
-
-	.snacks-img {
-		width: 40vw;
-		height: 16vh;
-		border-radius: 30px;
-
-		max-width: 132px;
-		max-height: 115px;
-	}
-
-	.snacks-info {
-		width: 40vw;
-		margin-top: -45px;
-		padding-top: 40%;
-		height: 18vh;
-		border-radius: 0px 0px 20px 20px;
-
-		max-width: 131px;
-		max-height: 115px;
-	}
-
-	.snacks-title {
-		font-size: 0.9rem;
-	}
-
-	.snacks-footer {
-		margin-top: 3%;
-		font-size: 0.8rem;
-	}
-
-	.snacks-span {
-		width: 15vw;
-		height: 6vw;
 		border-radius: 15px;
+		font-size: 4em;
 	}
+	#lefticon{
+		border-radius: 15px;
+		font-size: 4em;
+	}
+}
 
+@media (max-width: 660px) {
+	/* ================= */
+	/* ===== LOGO ====== */
+	#header {
+		padding: 10px;
+	}
+	#logo {
+		margin-top: 2vh;
+		width: 200px;
+	}
+	#carticon {
+		border-radius: 10px;
+		font-size: 2.5em;
+		padding: 5px;
+	}
+	#lefticon{
+		border-radius: 10px;
+		font-size: 2.5em;
+		padding: 5px;
+	}
+	/* ================= */
+	/* ===== Título ====== */
+	#title {
+		font-size: 2.7rem;
+	}
+	#description {
+		font-size: 2rem;
+	}
+	/* ================= */
+	/* ===== CARD ====== */
+	#snacks {
+		gap: 10px;
+	}
+	.snacks-items {
+		width: 200px;
+		height: 260px;
+	}
+	.snacks-title {
+		margin-top: 0px;
+		font-size: 16px;
+	}
+	.snacks-footer {
+		font-size: 13px;
+	}
+	.snacks-info {
+		padding: 10px 20px 20px 20px;
+	}
+	
+}
+
+@media (max-width: 450px) {
+	/* ================= */
+	/* ===== CARD ====== */
+	#snacks {
+		gap: 10px;
+	}
+	.snacks-items {
+		width: 150px;
+		height: 210px;
+	}
+	.snacks-title {
+		margin-top: 0px;
+		font-size: 14px;
+	}
+	.snacks-footer {
+		font-size: 12px;
+	}
+	.snacks-info {
+		padding: 20px;
+	}
 }
