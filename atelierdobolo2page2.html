@@ -20,20 +20,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
 
 </head>
 
 <body>
+
+    <div class="menu">
+        <div class="snacks-items">
+            <a>
+            <img src="" class="snacks-img">
+            <div class="snacks-info">
+                <h1 class="snacks-title">--</h1>
+                <div class="snacks-footer">
+                    <p>--</p>
+                    <span class="snacks-span">R$ --</span>
+                </div>
+            </div>
+            </a>
+        </div>
+
+        <!--itens do carrinho-->
+        <div class="cart--item">
+            <img src="" />
+            <div class="cart--item-nome" id="cartItemNome">
+                <span>--</span>
+            </div>
+            <div class="cart--item--qtarea">
+                <div class="cart--item--qt">1</div>
+                <div class="unidades">unidades</div>
+                <button class="cart--item-qtmenos">-</button>
+                <button class="cart--item-qtmais" id="cartItemQt">+</button>
+            </div>
+        </div>
+    </div>
+
     <div id="header" class="logo">
         <div>
-            <a><i id="lefticon" class="ri-arrow-left-line ri-8x"></i></a>
+            <a onclick="(window.location='atelierdobolo2.html')"><i id="lefticon" class="ri-arrow-left-line ri-8x"></i></a>
         </div>
         <div id="img-div">
             <img id="logo" src="logo.svg">
         </div>
-        <div>
+        <div class="menu-openner">
+            <span></span>
             <i id="carticon" class='bx bx-cart' style='color:#964b74'></i>
         </div>
     </div>
@@ -49,43 +84,81 @@
 
     <section>
         <div id="snacks">
-            <div class="snacks-items">
-                <img src="images/doces.png" class="snacks-img">
-                <div class="snacks-info">
-                    <h1 class="snacks-title">Bolinho de Bacalhau</h1>
-                    <div class="snacks-footer">
-                        <p>130g</p>
-                        <span class="snacks-span">R$ 8,00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="snacks-items">
-                <img src="images/doces.png" class="snacks-img">
-                <div class="snacks-info">
-                    <h1 class="snacks-title">Bolinho de Carne
-                        seca c/ Banana</h1>
-                    <div class="snacks-footer">
-                        <p>130g</p>
-                        <span class="snacks-span">R$ 8,00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="snacks-items">
-                <img src="images/doces.png" class="snacks-img">
-                <div class="snacks-info">
-                    <h1 class="snacks-title">Bolo Salgado
-                        Fatia</h1>
-                    <div class="snacks-footer">
-                        <p>130g</p>
-                        <span class="snacks-span">R$ 8,00</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
+    <aside>
+        <div class="cart--area">
+            <div class="texto--cart">FINALIZE AGORA</div><br><br>
+
+            <div class="cart" id="cart"></div>
+            <div class="cart--details" id="details">
+                <div class="fontes1">
+                    <div class="cart--totalitem subtotal">
+                        <span>Subtotal</span>
+                        <span>R$ --</span>
+                    </div>
+                    <div class="cart--totalitem taxa">
+                        <span>Taxa de entrega</span>
+                        <span>R$ 4,00</span>
+                    </div>
+                    <div class="cart--totalitem desconto">
+                        <span>Desconto (-10%)</span>
+                        <span>R$ --</span>
+                    </div>
+                    <div class="cart--totalitem total big">
+                        <span>Total</span>
+                        <span>R$ --</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cart--finalizar" id="cartFinalizar">ENVIAR PEDIDO</div><br><br>
+            <div class="menu-closer">
+                <span class="material-icons">arrow_back_ios</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="menuWindowArea">
+        <div class="menuWindowBody">
+            <div class="menuBig">
+                <img src="" />
+            </div>
+            <div class="menuInfo">
+                <h1>--</h1>
+                <div class="menuInfo--desc">--</div>
+                <div class="menuInfo--sizearea">
+                    <div class="menuInfo--sector"></div>
+                    <div class="menuInfo--sizes">
+                        <div data-key="0" class="menuInfo--size"><span>--</span></div>
+                        <div data-key="1" class="menuInfo--size"><span>--</span></div>
+                        <div data-key="2" class="menuInfo--size selected"><span>--</span></div>
+                    </div>
+                </div>
+                <div class="menuInfo--pricearea">
+                    <div class="menuInfo--sector">Preço</div>
+                    <div class="menuInfo--price">
+                        <div class="menuInfo--actualPrice">R$ --</div>
+                        <div class="menuInfo--qtarea">
+                            <button class="menuInfo--qtmenos">-</button>
+                            <div class="menuInfo--qt">1</div>
+                            <button class="menuInfo--qtmais">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menuInfo--addButton"><span class="material-icons white">
+                        download_done
+                    </span></div>
+                <div class="menuInfo--cancelButton">Cancelar</div>
+                <div class="menuInfo--cancelMobileButton">
+                    <span class="material-icons">arrow_back_ios</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!---js link-->
-    <script src="js/script.js"></script>
+    <script src="purchase-page.js"></script>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
