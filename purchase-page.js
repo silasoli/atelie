@@ -1,3 +1,8 @@
+let snacksItems = [
+    {id:1, name:'Bolinho de Bacalhau', img:'images/doces.png', price:[8.00, 8.00, 8.00], sizes:[' ', '',''], description:'130g'},
+    {id:2, name:'Bolinho de Carne seca c/ Banana', img:'images/doces.png', price:[8.00, 8.00, 8.00], sizes:[' ', '',''], description:'130g'},
+];
+
 let cart = [];
 let cartItemsSaved = JSON.parse(window.localStorage.getItem("cart"));
 let modalQt = 0;
@@ -10,30 +15,33 @@ window.addEventListener("load", () => {
 
 const c = (el)=>document.querySelector(el); 
 const cs = (el)=>document.querySelectorAll(el); 
-menuJson.map((item, index)=>{
-    let menuItem = c('.menu .menu-item').cloneNode(true);
+
+snacksItems.map((item, index)=>{
+    let menuItem = c('.menu .snacks-items').cloneNode(true);
+    menuItem.setAttribute('class', index + ' snacks-items');
     menuItem.setAttribute('data-key', index);
-    menuItem.querySelector('.menu-item--img img').src= item.img;
-    menuItem.querySelector('.menu-item--price').innerHTML = `R$ ${item.price[0].toFixed(2)}`;
-    menuItem.querySelector('.menu-item--name').innerHTML = item.name;
-    menuItem.querySelector('.menu-item--desc').innerHTML = item.description;
+    menuItem.querySelector('.snacks-img').src= `${item.img}`;
+    menuItem.querySelector('.snacks-footer p').innerHTML = `R$ ${item.price[0].toFixed(2)}`;
+    menuItem.querySelector('.snacks-info h1').innerHTML = item.name;
+    menuItem.querySelector('.snacks-span').innerHTML = item.description;
     menuItem.querySelector('a').addEventListener('click', (e)=>{
         e.preventDefault(); 
-        key = e.target.closest('.menu-item').getAttribute('data-key'); 
+        key = e.target.closest('.snacks-items').getAttribute('data-key'); 
         modalQt = 1;
-        c('.menuBig img').src = menuJson[key].img;
-        c('.menuInfo h1').innerHTML = menuJson[key].name;
-        c('.menuInfo--desc').innerHTML = menuJson[key].description;
+        
+        c('.menuBig img').src = snacksItems[key].img;
+        c('.menuInfo h1').innerHTML = snacksItems[key].name;
+        c('.menuInfo--desc').innerHTML = snacksItems[key].description;
         c('.menuInfo--size.selected').classList.remove('selected');
         cs('.menuInfo--size').forEach((size, sizeIndex)=>{
             if(sizeIndex == 2) {
                 size.classList.add('selected');
-                c('.menuInfo--actualPrice').innerHTML = `R$ ${menuJson[key].price[sizeIndex].toFixed(2)}`;
-                //c('.menuInfo--actualPrice2').innerHTML = `R$ ${menuJson[key].price[sizeIndex].toFixed(2)}`;
+                c('.menuInfo--actualPrice').innerHTML = `R$ ${snacksItems[key].price[sizeIndex].toFixed(2)}`;
+                //c('.menuInfo--actualPrice2').innerHTML = `R$ ${snacksItems[key].price[sizeIndex].toFixed(2)}`;
 
             }
-            //size.innerHTML = menuJson[key].sizes[sizeIndex];
-            size.querySelector('span').innerHTML = menuJson[key].sizes[sizeIndex];
+            //size.innerHTML = snacksItems[key].sizes[sizeIndex];
+            size.querySelector('span').innerHTML = snacksItems[key].sizes[sizeIndex];
         });
         c('.menuInfo--qt').innerHTML = modalQt;
         c('.menuWindowArea').style.opacity = 0; 
@@ -43,7 +51,7 @@ menuJson.map((item, index)=>{
         }, 200);
     });
 
-    c('.menu-area').append(menuItem);
+    c('#snacks').append(menuItem);
     
 });
 
@@ -76,15 +84,15 @@ cs('.menuInfo--size').forEach((size, sizeIndex)=>{
         c('.menuInfo--size.selected').classList.remove('selected');
         //e.target.classList.add('selected'); //ocorre erro se clicar no <span></span>
         size.classList.add('selected');
-        c('.menuInfo--actualPrice').innerHTML = `R$ ${menuJson[key].price[sizeIndex].toFixed(2)}`;
-        //c('.menuInfo--actualPrice2').innerHTML = `R$ ${menuJson[key].price[sizeIndex].toFixed(2)}`;
+        c('.menuInfo--actualPrice').innerHTML = `R$ ${snacksItems[key].price[sizeIndex].toFixed(2)}`;
+        //c('.menuInfo--actualPrice2').innerHTML = `R$ ${snacksItems[key].price[sizeIndex].toFixed(2)}`;
     });
 });
 
 
 c('.menuInfo--addButton').addEventListener('click', ()=>{
     let size = parseInt(c('.menuInfo--size.selected').getAttribute('data-key'));
-    let identifier = menuJson[key].id+'@'+size;
+    let identifier = snacksItems[key].id+'@'+size;
     
     let locaId = cart.findIndex((item)=>item.identifier == identifier);
     if(locaId > -1){
@@ -92,7 +100,7 @@ c('.menuInfo--addButton').addEventListener('click', ()=>{
     } else {
         cart.push({
             identifier,
-            id: menuJson[key].id,
+            id: snacksItems[key].id,
             size,
             qt:modalQt
         });
@@ -139,19 +147,19 @@ function updateCart() {
         let total = 0;
         let taxa = 5;
         cart.map((itemCart, index)=>{
-            let modelItem = menuJson.find((itemBD)=>itemBD.id == itemCart.id);
+            let modelItem = snacksItems.find((itemBD)=>itemBD.id == itemCart.id);
             subtotal += modelItem.price[itemCart.size] * itemCart.qt;
             let cartItem = c('.menu .cart--item').cloneNode(true);
             let menuizeName;
             switch(itemCart.size) {
                 case 0:
-                    menuizeName = `${menuJson[key].sizes[0]}`;
+                    menuizeName = `${snacksItems[key].sizes[0]}`;
                     break;
                 case 1:
-                    menuizeName = `${menuJson[key].sizes[1]}`;
+                    menuizeName = `${snacksItems[key].sizes[1]}`;
                     break;
                 case 2:
-                    menuizeName = `${menuJson[key].sizes[2]}`;
+                    menuizeName = `${snacksItems[key].sizes[2]}`;
             }
             //itens abaixo aparecem no carrinho enviar pedido
             cartItem.querySelector('img').src = modelItem.img;
