@@ -43,7 +43,6 @@ body {
 	width: max-content;
 	border-radius: 30px;
 	font-size: 8em;
-	background-color: #FFE8E5;
 }
 #lefticon{
 	width: max-content;
@@ -148,6 +147,12 @@ body {
 }
 
 @media (max-width: 900px) { 
+
+    /* ================= */
+    /* ===== MENU CARRINHO ====== */
+    .menu-openner span {
+        font-size: 3.5em !important;
+    }
 	/* ================= */
 	/* ===== LOGO ====== */
 	#logo {
@@ -165,6 +170,13 @@ body {
 }
 
 @media (max-width: 660px) {
+
+    /* ================= */
+    /* ===== MENU CARRINHO ====== */
+    .menu-openner span {
+        font-size: 2.3em !important;
+    }
+
 	/* ================= */
 	/* ===== LOGO ====== */
 	#header {
@@ -239,42 +251,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
 .material-icons.white { color: #FFF; }
 
 
@@ -296,11 +272,18 @@ header {
 }
 
 .menu-openner {
-    margin-right: 15px;
-    font-size: 26px;
-    background-color: #FF94CB;
-    padding: 10px 20px;
-    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 25px;
+
+}
+
+.menu-openner span {
+    font-size: 100px;
+    font-weight: 700;
+    color: #964b74;
 }
 
 .menu-openner:hover {
@@ -349,9 +332,6 @@ header {
     text-align: center;
 }
 
-.menu-openner span {
-    margin-right:10px;
-}
 
 .menu-closer {
     display:none;
@@ -362,16 +342,17 @@ header {
 }
 
 aside {
+    width: 600px;
+    margin: 30px auto;
+    border-radius: 15px;
     background-color:white;
-    width:0vw;
-    height: 0vh;
     font-family:novafonte;
     transition:all ease .1s;
     overflow-x:hidden;
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.356);
 }
 
 aside.show {
-    width:30vw;
     height: auto;
 }
 
