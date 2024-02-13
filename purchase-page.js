@@ -112,7 +112,7 @@ c('.menuInfo--addButton').addEventListener('click', ()=>{
 
 window.addEventListener("load", () => {
     if(cart.length > 0) {
-        c('.menu-openner span').innerHTML = cart.length;
+        c('.menu-openner span').innerHTML = cart.length + 1;
     }
 });
 
@@ -135,6 +135,11 @@ $("#cartFinalizar").click(function(){
     
 })
 
+function sendOrder(){
+    $(location).attr("href", "https://wa.me/5575992137982?text=Ol%C3%A1+Gostaria+de+fazer+o+seguinte+pedido" + encodeURI( "olá, gostaria de fazer um pedido\n" + document.getElementById("cart").innerText.replace(/<br\s*\/?>/, "\n") + document.getElementById("details").textContent + "\n *Campo para endereço de entrega e observações:* \n"))
+    window.localStorage.clear();
+    var pegarTxt = document.getElementById("Total").innerText;
+}
 
 function updateCart() {
     window.localStorage.setItem("cart", JSON.stringify(cart));
@@ -188,6 +193,39 @@ function updateCart() {
         c('.desconto span:last-child').innerHTML = `R$ ${desconto.toFixed(2)}`;
         c('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`;
     } else {
+        c('.menu-openner span').innerHTML = 0;
+        c('aside').innerHTML = `
+        <div class="cart--area">
+            <div class="texto--cart">FINALIZE AGORA</div><br><br>
+
+            <div class="cart" id="cart"></div>
+            <div class="cart--details" id="details">
+                <div class="fontes1">
+                    <div class="cart--totalitem subtotal">
+                        <span>Subtotal</span>
+                        <span>R$ 0,00</span>
+                    </div>
+                    <div class="cart--totalitem taxa">
+                        <span>Taxa de entrega</span>
+                        <span>R$ 5,00</span>
+                    </div>
+                    <div class="cart--totalitem desconto">
+                        <span>Desconto (-10%)</span>
+                        <span>R$ 0,00</span>
+                    </div>
+                    <div class="cart--totalitem total big">
+                        <span>Total</span>
+                        <span>R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cart--finalizar" id="cartFinalizar" onclick="sendOrder()">ENVIAR PEDIDO</div><br><br>
+            <div class="menu-closer">
+                <span class="material-icons">arrow_back_ios</span>
+            </div>
+        </div>
+        `;
+        
         c('aside').classList.remove('show');
         c('aside').style.left = '100vw';
     }
