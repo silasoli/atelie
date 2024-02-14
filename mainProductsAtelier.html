@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Atelier do Bolo</title>
-    <link rel="stylesheet" type="text/css" href="novoestile2.css">
+    <link rel="stylesheet" type="text/css" href="main-products-atelier.css">
     <link rel="shortcut icon" href="MARCA_ATELIER.png" type="image/x-icon">
 
 
@@ -58,7 +58,7 @@
                 </div>
             </div>
 
-            <div class="orders-items"  onclick="(window.location='./atelierdobolo2page2.html')">
+            <div class="orders-items"  onclick="(window.location='./purchasePageAtelier.html'),  setTypeFilterValue('snacks')">
                 <img src="images/lanches.png" class="orders-img">
                 <div class="orders-info">
                     <h1 class="orders-title">Lanches</h1>
@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="orders-items" onclick="(window.location='./atelierdobolo2page2.html')">
+            <div class="orders-items" onclick="(window.location='./purchasePageAtelier.html'), setTypeFilterValue('candy')">
                 <img src="images/doces.png" class="orders-img">
                 <div class="orders-info">
                     <h1 class="orders-title">Doces</h1>
@@ -96,40 +96,7 @@
     </section>
    
     <!---js link-->
-    <script src="js/script.js"></script>
-    <script src="js/slider.js"></script>
-
-    <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {
-                slideIndex = 1
-            }
-            if (n < 1) {
-                slideIndex = slides.length
-            }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-        }
-    </script>
+    <script src="main-products-atelier.js"></script>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

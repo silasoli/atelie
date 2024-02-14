@@ -1,6 +1,7 @@
-let snacksItems = [
-    {id:1, name:'Bolinho de Bacalhau', img:'images/doces.png', price:[8.00, 8.00, 8.00], sizes:[' ', '',''], description:'130g'},
-    {id:2, name:'Bolinho de Carne seca c/ Banana', img:'images/doces.png', price:[8.00, 8.00, 8.00], sizes:[' ', '',''], description:'130g'},
+//type: candy | snacks.
+let items = [
+    {id:1, name:'Bolinho de Bacalhau', img:'images/doces.png', type: 'snacks', price:[8.00, 8.00, 8.00], sizes:[' ', '',''], description:'130g'},
+    {id:2, name:'Bolinho de Carne seca c/ Banana', img:'images/doces.png', type: 'snacks', price:[8.00, 8.00, 8.00], sizes:[' ', '',''], description:'130g'},
 ];
 
 let cart = [];
@@ -10,13 +11,18 @@ let key = 0;
 
 window.addEventListener("load", () => {
     cart.push(...cartItemsSaved || []);
+    updateCart()
     window.localStorage.setItem("cart", JSON.stringify(cart));
 }); 
 
 const c = (el)=>document.querySelector(el); 
-const cs = (el)=>document.querySelectorAll(el); 
+const cs = (el)=>document.querySelectorAll(el);
 
-snacksItems.map((item, index)=>{
+function getTypeFilterValue(){
+    return !window.localStorage.getItem("type") ? 'snacks' : window.localStorage.getItem("type");
+}
+
+items.filter(item => item.type === getTypeFilterValue()).map((item, index)=>{
     let menuItem = c('.menu .snacks-items').cloneNode(true);
     menuItem.setAttribute('class', index + ' snacks-items');
     menuItem.setAttribute('data-key', index);
@@ -29,19 +35,19 @@ snacksItems.map((item, index)=>{
         key = e.target.closest('.snacks-items').getAttribute('data-key'); 
         modalQt = 1;
         
-        c('.menuBig img').src = snacksItems[key].img;
-        c('.menuInfo h1').innerHTML = snacksItems[key].name;
-        c('.menuInfo--desc').innerHTML = snacksItems[key].description;
+        c('.menuBig img').src = items[key].img;
+        c('.menuInfo h1').innerHTML = items[key].name;
+        c('.menuInfo--desc').innerHTML = items[key].description;
         c('.menuInfo--size.selected').classList.remove('selected');
         cs('.menuInfo--size').forEach((size, sizeIndex)=>{
             if(sizeIndex == 2) {
                 size.classList.add('selected');
-                c('.menuInfo--actualPrice').innerHTML = `R$ ${snacksItems[key].price[sizeIndex].toFixed(2)}`;
-                //c('.menuInfo--actualPrice2').innerHTML = `R$ ${snacksItems[key].price[sizeIndex].toFixed(2)}`;
+                c('.menuInfo--actualPrice').innerHTML = `R$ ${items[key].price[sizeIndex].toFixed(2)}`;
+                //c('.menuInfo--actualPrice2').innerHTML = `R$ ${items[key].price[sizeIndex].toFixed(2)}`;
 
             }
-            //size.innerHTML = snacksItems[key].sizes[sizeIndex];
-            size.querySelector('span').innerHTML = snacksItems[key].sizes[sizeIndex];
+            //size.innerHTML = items[key].sizes[sizeIndex];
+            size.querySelector('span').innerHTML = items[key].sizes[sizeIndex];
         });
         c('.menuInfo--qt').innerHTML = modalQt;
         c('.menuWindowArea').style.opacity = 0; 
@@ -84,15 +90,15 @@ cs('.menuInfo--size').forEach((size, sizeIndex)=>{
         c('.menuInfo--size.selected').classList.remove('selected');
         //e.target.classList.add('selected'); //ocorre erro se clicar no <span></span>
         size.classList.add('selected');
-        c('.menuInfo--actualPrice').innerHTML = `R$ ${snacksItems[key].price[sizeIndex].toFixed(2)}`;
-        //c('.menuInfo--actualPrice2').innerHTML = `R$ ${snacksItems[key].price[sizeIndex].toFixed(2)}`;
+        c('.menuInfo--actualPrice').innerHTML = `R$ ${items[key].price[sizeIndex].toFixed(2)}`;
+        //c('.menuInfo--actualPrice2').innerHTML = `R$ ${items[key].price[sizeIndex].toFixed(2)}`;
     });
 });
 
 
 c('.menuInfo--addButton').addEventListener('click', ()=>{
     let size = parseInt(c('.menuInfo--size.selected').getAttribute('data-key'));
-    let identifier = snacksItems[key].id+'@'+size;
+    let identifier = items[key].id+'@'+size;
     
     let locaId = cart.findIndex((item)=>item.identifier == identifier);
     if(locaId > -1){
@@ -100,7 +106,7 @@ c('.menuInfo--addButton').addEventListener('click', ()=>{
     } else {
         cart.push({
             identifier,
-            id: snacksItems[key].id,
+            id: items[key].id,
             size,
             qt:modalQt
         });
@@ -112,7 +118,7 @@ c('.menuInfo--addButton').addEventListener('click', ()=>{
 
 window.addEventListener("load", () => {
     if(cart.length > 0) {
-        c('.menu-openner span').innerHTML = cart.length + 1;
+        c('.menu-openner span').innerHTML = cart.length;
     }
 });
 
@@ -152,19 +158,19 @@ function updateCart() {
         let total = 0;
         let taxa = 5;
         cart.map((itemCart, index)=>{
-            let modelItem = snacksItems.find((itemBD)=>itemBD.id == itemCart.id);
+            let modelItem = items.find((itemBD)=>itemBD.id == itemCart.id);
             subtotal += modelItem.price[itemCart.size] * itemCart.qt;
             let cartItem = c('.menu .cart--item').cloneNode(true);
             let menuizeName;
             switch(itemCart.size) {
                 case 0:
-                    menuizeName = `${snacksItems[key].sizes[0]}`;
+                    menuizeName = `${items[key].sizes[0]}`;
                     break;
                 case 1:
-                    menuizeName = `${snacksItems[key].sizes[1]}`;
+                    menuizeName = `${items[key].sizes[1]}`;
                     break;
                 case 2:
-                    menuizeName = `${snacksItems[key].sizes[2]}`;
+                    menuizeName = `${items[key].sizes[2]}`;
             }
             //itens abaixo aparecem no carrinho enviar pedido
             cartItem.querySelector('img').src = modelItem.img;
@@ -229,6 +235,4 @@ function updateCart() {
         c('aside').classList.remove('show');
         c('aside').style.left = '100vw';
     }
-
-
 }
