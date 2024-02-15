@@ -1,4 +1,4 @@
-//type: candy | snacks.
+//type:  snacks (lanches), candy (doces),  cakes (bolos),  drinks (bebidas).
 let items = [
     {id:1, name:'Bolinho de Bacalhau', img:'images/doces.png', type: 'snacks', price:[8.00, 8.00, 8.00], sizes:[' ', '',''], description:'130g'},
     {id:2, name:'Bolinho de Carne seca c/ Banana', img:'images/doces.png', type: 'snacks', price:[8.00, 8.00, 8.00], sizes:[' ', '',''], description:'130g'},
